@@ -538,7 +538,7 @@ class _UserHomeState extends State<UserHome> {
                               status == 'Not Active'
                                   ? Text("Stay Healthy")
                                   : Text(
-                                      "Donation centre details will be shown here.",
+                                      "Donation area's details will be shown here.",
                                       style: TextStyle(color: Colors.black54),
                                     )
                             ],
@@ -553,7 +553,7 @@ class _UserHomeState extends State<UserHome> {
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 children: [
                                   Text(
-                                    "Donation Centre",
+                                    "Donation Area",
                                     style: TextStyle(
                                         color: Color(0xFBD85585),
                                         fontSize: 15.sp,

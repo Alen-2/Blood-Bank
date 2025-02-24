@@ -19,7 +19,7 @@ class MyApp extends StatelessWidget {
       designSize: Size(361, 428),
       builder: (context, child) {
         return MaterialApp(
-            title: 'Blood Bridge',
+            title: 'Blood Bank',
             theme: ThemeData(
               primarySwatch: Colors.blue,
             ),
