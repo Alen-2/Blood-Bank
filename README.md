@@ -50,15 +50,6 @@ BloodBridge
     - receiverQuantity {String} // (How much blood is required/available?)
     - userChoice {String} // (Donor/ Receiver/ Not Available)
     - whoAreYou {String} // (Hospital/ Blood Bank/ User) 
-
-
-
-<h1>Contact</h1>
-<p>If you have any questions or issues with the project, please don't hesitate to reach out to me. You can contact me via email at adwait1291@gmail.com
-
-<h1> Credits</h1>
-<p>Icons: https://www.flaticon.com/<br>
-Images: https://slidesgo.com/</p>
 <br>
 <br>
 
