@@ -7,7 +7,7 @@ import '../../Auth/loginPage.dart';
 
 class HospitalProfile extends StatefulWidget {
   final User user;
-  HospitalProfile({required this.user});
+  const HospitalProfile({super.key, required this.user});
   @override
   State<HospitalProfile> createState() => _HospitalProfileState();
 }
@@ -19,7 +19,7 @@ class _HospitalProfileState extends State<HospitalProfile> {
   void getUserData() async {
     final uid = FirebaseAuth.instance.currentUser?.uid;
     final currentUserData =
-        await FirebaseFirestore.instance.doc('users/' + uid!).get();
+        await FirebaseFirestore.instance.doc('users/${uid!}').get();
     location = currentUserData['location'];
     phone = currentUserData['mobileNo'];
 
@@ -45,10 +45,10 @@ class _HospitalProfileState extends State<HospitalProfile> {
                   SizedBox(height: 10.h),
                   Center(
                     child: CircleAvatar(
-                      backgroundColor: Color(0xFFF8E1E7),
+                      backgroundColor: const Color(0xFFF8E1E7),
                       radius: 70.r,
                       child: CircleAvatar(
-                        backgroundColor: Color.fromARGB(255, 255, 255, 255),
+                        backgroundColor: const Color.fromARGB(255, 255, 255, 255),
                         radius: 60.r,
                         child: Image.asset(
                           'assets/images/hospital-building.png',
@@ -63,7 +63,7 @@ class _HospitalProfileState extends State<HospitalProfile> {
                   Text(
                     "${widget.user.displayName}",
                     style: TextStyle(
-                        color: Color(0xFBD85585),
+                        color: const Color(0xFBD85585),
                         fontSize: 19.sp,
                         fontWeight: FontWeight.w600),
                   ),
@@ -73,7 +73,7 @@ class _HospitalProfileState extends State<HospitalProfile> {
                   Container(
                     height: 82.h,
                     decoration: BoxDecoration(
-                        color: Color(0xFFF8E1E7),
+                        color: const Color(0xFFF8E1E7),
                         borderRadius: BorderRadius.circular(10.r)),
                     child: Column(
                       children: [
@@ -85,7 +85,7 @@ class _HospitalProfileState extends State<HospitalProfile> {
                             SizedBox(
                               width: 20.w,
                             ),
-                            Container(
+                            SizedBox(
                               width: 100.w,
                               child: Text(
                                 "Location",
@@ -96,7 +96,7 @@ class _HospitalProfileState extends State<HospitalProfile> {
                             Container(
                               child: Text(
                                 location.length > 20
-                                    ? location.substring(0, 17) + "..."
+                                    ? "${location.substring(0, 17)}..."
                                     : location,
                                 style: TextStyle(fontSize: 13.sp),
                               ),
@@ -106,7 +106,7 @@ class _HospitalProfileState extends State<HospitalProfile> {
                         SizedBox(
                           height: 10.h,
                         ),
-                        Divider(
+                        const Divider(
                           color: Color(0xFFD1AAB1),
                         ),
                         SizedBox(
@@ -117,7 +117,7 @@ class _HospitalProfileState extends State<HospitalProfile> {
                             SizedBox(
                               width: 20.w,
                             ),
-                            Container(
+                            SizedBox(
                               width: 100.w,
                               child: Text(
                                 "Phone no.",
@@ -155,7 +155,7 @@ class _HospitalProfileState extends State<HospitalProfile> {
                     style: TextStyle(fontSize: 13.sp),
                   ),
                   _isSigningOut
-                      ? CircularProgressIndicator()
+                      ? const CircularProgressIndicator()
                       : TextButton(
                           onPressed: () async {
                             setState(() {
@@ -167,11 +167,11 @@ class _HospitalProfileState extends State<HospitalProfile> {
                             });
                             Navigator.of(context).pushReplacement(
                               MaterialPageRoute(
-                                builder: (context) => LoginPage(),
+                                builder: (context) => const LoginPage(),
                               ),
                             );
                           },
-                          child: Text(
+                          child: const Text(
                             'Log out',
                             style: TextStyle(color: Color(0xFBD85585)),
                           ),

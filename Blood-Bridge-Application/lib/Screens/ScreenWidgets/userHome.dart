@@ -1,8 +1,7 @@
 // ignore_for_file: avoid_unnecessary_containers, sized_box_for_whitespace, prefer_const_constructors, prefer_const_literals_to_create_immutables
 
-import 'dart:ffi';
 
-import 'package:blood_bridge/Widgets/DropDown.dart';
+import 'package:blood_bank/Widgets/DropDown.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
@@ -10,6 +9,8 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class UserHome extends StatefulWidget {
   static const routeName = '/home';
+
+  const UserHome({super.key});
 
   @override
   State<UserHome> createState() => _UserHomeState();
@@ -27,7 +28,7 @@ class _UserHomeState extends State<UserHome> {
   var userMatched = "Unknown";
   var userLoc = "Unknown";
   var userMob = "Unknown";
-  var _isProcessing = false;
+  final _isProcessing = false;
 
   List<String> donorTimeOptions = [
     '00:00 - 6:00',
@@ -46,7 +47,7 @@ class _UserHomeState extends State<UserHome> {
   Future<void> getUserData() async {
     final uid = FirebaseAuth.instance.currentUser?.uid;
     final currentUserData =
-        await FirebaseFirestore.instance.doc('users/' + uid!).get();
+        await FirebaseFirestore.instance.doc('users/${uid!}').get();
 
     status = currentUserData['userChoice'];
     updateStatus();
@@ -363,7 +364,7 @@ class _UserHomeState extends State<UserHome> {
                               Opacity(
                                 opacity: 0.8,
                                 child: Image.asset(
-                                  'assets/images/' + statusImage,
+                                  'assets/images/$statusImage',
                                   height: 20.h,
                                 ),
                               ),
@@ -375,13 +376,13 @@ class _UserHomeState extends State<UserHome> {
                                 onPressed: () {
                                   switchDialog();
                                 },
-                                child: Text("Switch"),
                                 style: ElevatedButton.styleFrom(
                                   backgroundColor: Colors.black,
                                   shape: RoundedRectangleBorder(
                                     borderRadius: BorderRadius.circular(15.r),
                                   ),
                                 ),
+                                child: Text("Switch"),
                               ),
                             ],
                           ),
@@ -492,7 +493,7 @@ class _UserHomeState extends State<UserHome> {
                                   SizedBox(width: 10.w),
                                   Text(
                                     userLoc.length > 20
-                                        ? userLoc.substring(0, 27) + "..."
+                                        ? "${userLoc.substring(0, 27)}..."
                                         : userLoc,
                                   ),
                                 ],
@@ -589,7 +590,7 @@ class _UserHomeState extends State<UserHome> {
                                   SizedBox(width: 10.w),
                                   Text(
                                     centreLoc.length > 20
-                                        ? centreLoc.substring(0, 27) + "..."
+                                        ? "${centreLoc.substring(0, 27)}..."
                                         : centreLoc,
                                   ),
                                 ],

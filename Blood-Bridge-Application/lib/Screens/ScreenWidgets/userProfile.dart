@@ -10,7 +10,7 @@ import '../../Auth/loginPage.dart';
 class UserProfile extends StatefulWidget {
   static const routeName = '/menu';
   final User user;
-  UserProfile({required this.user});
+  const UserProfile({super.key, required this.user});
   @override
   State<UserProfile> createState() => _MenuPageState();
 }
@@ -25,7 +25,7 @@ class _MenuPageState extends State<UserProfile> {
   getUserData() async {
     final uid = FirebaseAuth.instance.currentUser?.uid;
     final currentUserData =
-        await FirebaseFirestore.instance.doc('users/' + uid!).get();
+        await FirebaseFirestore.instance.doc('users/${uid!}').get();
     location = currentUserData['location'];
     phone = currentUserData['mobileNo'];
     bloodGroup = currentUserData['bloodGroup'];
@@ -154,7 +154,7 @@ class _MenuPageState extends State<UserProfile> {
                             Container(
                               child: Text(
                                 location.length > 20
-                                    ? location.substring(0, 17) + "..."
+                                    ? "${location.substring(0, 17)}..."
                                     : location,
                                 style: TextStyle(fontSize: 13.sp),
                               ),

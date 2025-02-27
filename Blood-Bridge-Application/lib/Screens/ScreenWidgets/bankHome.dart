@@ -23,7 +23,7 @@ class _BankHomeState extends State<BankHome> {
   Future<void> getUserData() async {
     final uid = FirebaseAuth.instance.currentUser?.uid;
     final currentUserData =
-        await FirebaseFirestore.instance.doc('users/' + uid!).get();
+        await FirebaseFirestore.instance.doc('users/${uid!}').get();
     matchedDonationID = currentUserData['matchedDonation'];
   }
 
@@ -73,8 +73,8 @@ class _BankHomeState extends State<BankHome> {
                       });
                     },
               child: _isLoadingDonation
-                  ? CircularProgressIndicator()
-                  : Text("Refresh")),
+                  ? const CircularProgressIndicator()
+                  : const Text("Refresh")),
           SizedBox(
             height: 1.h,
           ),
@@ -84,16 +84,16 @@ class _BankHomeState extends State<BankHome> {
               children: [
                 Column(
                   children: [
-                    matchedDonationDetails.length == 0
+                    matchedDonationDetails.isEmpty
                         ? Container(
                             width: double.infinity,
                             height: 100.h,
                             decoration: BoxDecoration(
-                              color: Color.fromARGB(255, 255, 255, 255),
+                              color: const Color.fromARGB(255, 255, 255, 255),
                               borderRadius: BorderRadius.circular(15.r),
                               boxShadow: [
                                 BoxShadow(
-                                    color: Color.fromARGB(255, 187, 186, 186),
+                                    color: const Color.fromARGB(255, 187, 186, 186),
                                     blurRadius: 2.r,
                                     blurStyle: BlurStyle.outer,
                                     offset: const Offset(0, 2)),
@@ -111,7 +111,7 @@ class _BankHomeState extends State<BankHome> {
                                 SizedBox(
                                   height: 10.h,
                                 ),
-                                Text(
+                                const Text(
                                   "Donation details will be shown here",
                                   style: TextStyle(color: Colors.black54),
                                 )
@@ -127,11 +127,11 @@ class _BankHomeState extends State<BankHome> {
                                     width: double.infinity,
                                     height: 100.h,
                                     decoration: BoxDecoration(
-                                      color: Color.fromARGB(255, 255, 255, 255),
+                                      color: const Color.fromARGB(255, 255, 255, 255),
                                       borderRadius: BorderRadius.circular(15.r),
                                       boxShadow: [
                                         BoxShadow(
-                                            color: Color.fromARGB(
+                                            color: const Color.fromARGB(
                                                 255, 187, 186, 186),
                                             blurRadius: 2.r,
                                             blurStyle: BlurStyle.outer,
@@ -150,10 +150,9 @@ class _BankHomeState extends State<BankHome> {
                                               MainAxisAlignment.center,
                                           children: [
                                             Text(
-                                              "Donation No: " +
-                                                  (index + 1).toString(),
+                                              "Donation No: ${index + 1}",
                                               style: TextStyle(
-                                                  color: Color(0xFBD85585),
+                                                  color: const Color(0xFBD85585),
                                                   fontSize: 15.sp,
                                                   fontWeight: FontWeight.w600),
                                             ),
@@ -165,37 +164,37 @@ class _BankHomeState extends State<BankHome> {
                                         Row(
                                           children: [
                                             SizedBox(width: 30.w),
-                                            Text("Donor Name :      "),
+                                            const Text("Donor Name :      "),
                                             SizedBox(width: 10.w),
                                             Text(matchedDonationDetails[index]
                                                 ['donorName']),
                                           ],
                                         ),
-                                        Divider(),
+                                        const Divider(),
                                         Row(
                                           children: [
                                             SizedBox(width: 30.w),
-                                            Text("Donor Mob :        "),
+                                            const Text("Donor Mob :        "),
                                             SizedBox(width: 10.w),
                                             Text(matchedDonationDetails[index]
                                                 ['donorMob']),
                                           ],
                                         ),
-                                        Divider(),
+                                        const Divider(),
                                         Row(
                                           children: [
                                             SizedBox(width: 30.w),
-                                            Text("Receiver Name : "),
+                                            const Text("Receiver Name : "),
                                             SizedBox(width: 10.w),
                                             Text(matchedDonationDetails[index]
                                                 ['receiverName']),
                                           ],
                                         ),
-                                        Divider(),
+                                        const Divider(),
                                         Row(
                                           children: [
                                             SizedBox(width: 30.w),
-                                            Text("Receiver Mob :    "),
+                                            const Text("Receiver Mob :    "),
                                             SizedBox(width: 10.w),
                                             Text(matchedDonationDetails[index]
                                                 ['receiverMob']),

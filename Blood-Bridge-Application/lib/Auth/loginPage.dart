@@ -2,13 +2,15 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:blood_bridge/Auth/fireAuth.dart';
-import 'package:blood_bridge/Auth/registrationOptions.dart';
-import 'package:blood_bridge/Screens/mainScreen.dart';
+import 'package:blood_bank/Auth/fireAuth.dart';
+import 'package:blood_bank/Auth/registrationOptions.dart';
+import 'package:blood_bank/Screens/mainScreen.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import '../Widgets/customForm.dart';
 
 class LoginPage extends StatefulWidget {
+  const LoginPage({super.key});
+
   @override
   _LoginPageState createState() => _LoginPageState();
 }
@@ -75,7 +77,7 @@ class _LoginPageState extends State<LoginPage> {
                             Text(
                               "Log In",
                               style: TextStyle(
-                                  color: Color.fromARGB(255, 0, 0, 0),
+                                  color: const Color.fromARGB(255, 0, 0, 0),
                                   fontSize: 30.sp,
                                   fontWeight: FontWeight.w600),
                             ),
@@ -100,7 +102,7 @@ class _LoginPageState extends State<LoginPage> {
                                   SizedBox(
                                     height: 8.h,
                                   ),
-                                  Container(
+                                  const SizedBox(
                                     width: double.infinity,
                                     child: Text(
                                       "Forgot Password?",
@@ -114,7 +116,7 @@ class _LoginPageState extends State<LoginPage> {
                                     height: 13.h,
                                   ),
                                   _isProcessing
-                                      ? CircularProgressIndicator()
+                                      ? const CircularProgressIndicator()
                                       : Row(
                                           mainAxisAlignment:
                                               MainAxisAlignment.spaceBetween,
@@ -138,7 +140,7 @@ class _LoginPageState extends State<LoginPage> {
                                                     ),
                                                   );
                                                 },
-                                                child: Text(
+                                                child: const Text(
                                                   'Register',
                                                   style: TextStyle(
                                                       color: Colors.white),
@@ -152,7 +154,7 @@ class _LoginPageState extends State<LoginPage> {
                                               child: ElevatedButton(
                                                 style: ElevatedButton.styleFrom(
                                                   backgroundColor:
-                                                      Color(0xFFE57373),
+                                                      const Color(0xFFE57373),
                                                   shape: RoundedRectangleBorder(
                                                     borderRadius:
                                                         BorderRadius.circular(
@@ -183,20 +185,18 @@ class _LoginPageState extends State<LoginPage> {
                                                       _isProcessing = false;
                                                     });
 
-                                                    if (user != null) {
-                                                      Navigator.of(context)
-                                                          .pushReplacement(
-                                                        MaterialPageRoute(
-                                                          builder: (context) =>
-                                                              MainScreen(
-                                                            user: user,
-                                                          ),
+                                                    Navigator.of(context)
+                                                        .pushReplacement(
+                                                      MaterialPageRoute(
+                                                        builder: (context) =>
+                                                            MainScreen(
+                                                          user: user,
                                                         ),
-                                                      );
-                                                    }
-                                                  }
+                                                      ),
+                                                    );
+                                                                                                    }
                                                 },
-                                                child: Text(
+                                                child: const Text(
                                                   'Sign In',
                                                   style: TextStyle(
                                                       color: Colors.white),
@@ -223,7 +223,7 @@ class _LoginPageState extends State<LoginPage> {
                 );
               }
 
-              return Center(
+              return const Center(
                 child: CircularProgressIndicator(),
               );
             },

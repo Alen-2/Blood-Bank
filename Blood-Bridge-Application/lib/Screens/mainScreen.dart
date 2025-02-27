@@ -1,13 +1,13 @@
 // ignore_for_file: file_names, prefer_const_constructors, prefer_final_fields, prefer_const_literals_to_create_immutables, constant_identifier_names
 
-import 'package:blood_bridge/Screens/ScreenWidgets/bankHome.dart';
-import 'package:blood_bridge/Screens/ScreenWidgets/bankProfile.dart';
+import 'package:blood_bank/Screens/ScreenWidgets/bankHome.dart';
+import 'package:blood_bank/Screens/ScreenWidgets/bankProfile.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:blood_bridge/Screens/ScreenWidgets/userHome.dart';
-import 'package:blood_bridge/Screens/ScreenWidgets/userProfile.dart';
+import 'package:blood_bank/Screens/ScreenWidgets/userHome.dart';
+import 'package:blood_bank/Screens/ScreenWidgets/userProfile.dart';
 
 import '../Widgets/BottomNavBar.dart';
 import 'ScreenWidgets/hospitalHome.dart';
@@ -15,7 +15,7 @@ import 'ScreenWidgets/hospitalProfile.dart';
 
 class MainScreen extends StatefulWidget {
   final User user;
-  MainScreen({required this.user});
+  const MainScreen({super.key, required this.user});
   @override
   State<MainScreen> createState() => _MainScreenState();
 }
@@ -33,7 +33,7 @@ class _MainScreenState extends State<MainScreen> {
   void getUserData() async {
     final uid = FirebaseAuth.instance.currentUser?.uid;
     final currentUserData =
-        await FirebaseFirestore.instance.doc('users/' + uid!).get();
+        await FirebaseFirestore.instance.doc('users/${uid!}').get();
 
     whoAreYou = currentUserData['whoAreYou'];
 
@@ -57,7 +57,7 @@ class _MainScreenState extends State<MainScreen> {
           : widget.user.displayName!,
       "Profile"
     ];
-    List<Widget> _widgetOptions = whoAreYou == 'User'
+    List<Widget> widgetOptions = whoAreYou == 'User'
         ? <Widget>[
             UserHome(),
             UserProfile(
@@ -104,7 +104,7 @@ class _MainScreenState extends State<MainScreen> {
             elevation: 0.8,
           ),
         ),
-        body: _widgetOptions.elementAt(_selectedIndex),
+        body: widgetOptions.elementAt(_selectedIndex),
         bottomNavigationBar:
             BottomNavBar(manageSelectedIndex: _manageSelectedIndex),
       ),

@@ -1,37 +1,37 @@
-import 'package:blood_bridge/Auth/loginPage.dart';
+import 'package:blood_bank/Auth/loginPage.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:blood_bridge/Auth/Registration.dart';
-import 'package:blood_bridge/Screens/mainScreen.dart';
+import 'package:blood_bank/Auth/Registration.dart';
+import 'package:blood_bank/Screens/mainScreen.dart';
 
 class RegistrationOptions extends StatefulWidget {
+  const RegistrationOptions({super.key});
+
   @override
   State<RegistrationOptions> createState() => _RegistrationOptionsState();
 }
 
 class _RegistrationOptionsState extends State<RegistrationOptions> {
   var checkedValue = 0;
-  Widget unCheckedBox = Icon(
+  Widget unCheckedBox = const Icon(
     Icons.circle_outlined,
     color: Colors.black,
   );
-  Widget checkedBox = Icon(
+  Widget checkedBox = const Icon(
     Icons.circle,
     color: Colors.black,
   );
 
   List<Widget> checkBox = <Widget>[
-    Icon(
+    const Icon(
       Icons.circle_outlined,
       color: Colors.black,
     ),
-    Icon(
+    const Icon(
       Icons.circle_outlined,
       color: Colors.black,
     ),
-    Icon(
+    const Icon(
       Icons.circle_outlined,
       color: Colors.black,
     )
@@ -58,7 +58,7 @@ class _RegistrationOptionsState extends State<RegistrationOptions> {
               Text(
                 "Who are you?",
                 style: TextStyle(
-                    color: Color.fromARGB(255, 0, 0, 0),
+                    color: const Color.fromARGB(255, 0, 0, 0),
                     fontSize: 30.sp,
                     fontWeight: FontWeight.w500),
                 // textAlign: TextAlign.center,
@@ -77,7 +77,7 @@ class _RegistrationOptionsState extends State<RegistrationOptions> {
                     });
                   },
                   style: ElevatedButton.styleFrom(
-                    backgroundColor: Color(0xFFD7FDFF),
+                    backgroundColor: const Color(0xFFD7FDFF),
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(10.r),
                     ),
@@ -86,14 +86,14 @@ class _RegistrationOptionsState extends State<RegistrationOptions> {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       checkBox[0],
-                      Text(
+                      const Text(
                         "User",
                         style: TextStyle(
                           color: Colors.black,
                         ),
                         textScaleFactor: 1.5,
                       ),
-                      Icon(
+                      const Icon(
                         Icons.person,
                         color: Colors.black,
                       )
@@ -117,7 +117,7 @@ class _RegistrationOptionsState extends State<RegistrationOptions> {
                     });
                   },
                   style: ElevatedButton.styleFrom(
-                    backgroundColor: Color(0xFFD1FFC1),
+                    backgroundColor: const Color(0xFFD1FFC1),
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(10.h),
                     ),
@@ -126,14 +126,14 @@ class _RegistrationOptionsState extends State<RegistrationOptions> {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       checkBox[1],
-                      Text(
+                      const Text(
                         "Hospital",
                         style: TextStyle(
                           color: Colors.black,
                         ),
                         textScaleFactor: 1.5,
                       ),
-                      Icon(
+                      const Icon(
                         Icons.local_hospital_sharp,
                         color: Colors.black,
                       )
@@ -157,7 +157,7 @@ class _RegistrationOptionsState extends State<RegistrationOptions> {
                     });
                   },
                   style: ElevatedButton.styleFrom(
-                    backgroundColor: Color(0xFFFFD4D4),
+                    backgroundColor: const Color(0xFFFFD4D4),
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(10.h),
                     ),
@@ -166,14 +166,14 @@ class _RegistrationOptionsState extends State<RegistrationOptions> {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       checkBox[2],
-                      Text(
+                      const Text(
                         "Blood Bank",
                         style: TextStyle(
                           color: Colors.black,
                         ),
                         textScaleFactor: 1.5,
                       ),
-                      Icon(
+                      const Icon(
                         Icons.bloodtype_sharp,
                         color: Colors.black,
                       )
@@ -201,7 +201,7 @@ class _RegistrationOptionsState extends State<RegistrationOptions> {
                           ),
                         );
                       },
-                      child: Text(
+                      child: const Text(
                         'Back',
                         style: TextStyle(color: Colors.white),
                       ),
@@ -227,7 +227,7 @@ class _RegistrationOptionsState extends State<RegistrationOptions> {
                           ),
                         );
                       },
-                      child: Text(
+                      child: const Text(
                         'Next',
                         style: TextStyle(color: Colors.white),
                       ),

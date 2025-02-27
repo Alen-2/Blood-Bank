@@ -8,7 +8,7 @@ class DropDown extends StatefulWidget {
   var selectedValue;
   final List<String> items;
 
-  DropDown({
+  DropDown({super.key, 
     required this.items,
     required this.dropDownHandler,
     required this.text,
@@ -24,20 +24,20 @@ class _DropDownState extends State<DropDown> {
       padding: EdgeInsets.symmetric(horizontal: 24.w),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(10.h),
-        color: Color(0xFFF9DEE4),
+        color: const Color(0xFFF9DEE4),
       ),
       child: DropdownButtonHideUnderline(
         child: DropdownButton2(
           isExpanded: true,
           value: widget.selectedValue,
-          hint: Text(widget.text, style: TextStyle(color: Colors.black54)),
+          hint: Text(widget.text, style: const TextStyle(color: Colors.black54)),
           items: widget.items.map(
             (String items) {
               return DropdownMenuItem(
                 value: items,
                 child: Text(
                   items,
-                  style: TextStyle(color: Colors.black54),
+                  style: const TextStyle(color: Colors.black54),
                 ),
               );
             },

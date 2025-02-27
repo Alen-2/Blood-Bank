@@ -10,7 +10,7 @@ class CustomForm extends StatelessWidget {
   final _focusEmail = FocusNode();
   final _focusPassword = FocusNode();
 
-  CustomForm({
+  CustomForm({super.key, 
     required this.hintTextValue,
     required this.TextController,
   });
@@ -41,27 +41,27 @@ class CustomForm extends StatelessWidget {
         border: InputBorder.none,
         hintText: hintTextValue,
         filled: true,
-        fillColor: Color(0xFFF9DEE4),
+        fillColor: const Color(0xFFF9DEE4),
         contentPadding: EdgeInsets.only(
           left: 24.w,
           bottom: 6.h,
           top: 8.h,
         ),
         focusedBorder: OutlineInputBorder(
-          borderSide: BorderSide(
+          borderSide: const BorderSide(
             color: Color.fromARGB(153, 0, 0, 0),
           ),
           borderRadius: BorderRadius.circular(10.r),
         ),
         enabledBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(10.r),
-          borderSide: BorderSide(
+          borderSide: const BorderSide(
             color: Color.fromARGB(153, 247, 247, 247),
           ),
         ),
         errorBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(10.r),
-          borderSide: BorderSide(
+          borderSide: const BorderSide(
             color: Color.fromARGB(153, 255, 0, 0),
           ),
         ),

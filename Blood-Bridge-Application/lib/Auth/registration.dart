@@ -1,6 +1,6 @@
 import 'dart:ffi';
 
-import 'package:blood_bridge/Screens/mainScreen.dart';
+import 'package:blood_bank/Screens/mainScreen.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 
@@ -17,7 +17,7 @@ class RegisterPage extends StatefulWidget {
   _RegisterPageState createState() => _RegisterPageState();
 
   var nameHint;
-  RegisterPage({required this.nameHint});
+  RegisterPage({super.key, required this.nameHint});
 }
 
 class _RegisterPageState extends State<RegisterPage> {
@@ -159,7 +159,7 @@ class _RegisterPageState extends State<RegisterPage> {
                         isLastPage == false
                             ? Column(
                                 children: [
-                                  Container(
+                                  SizedBox(
                                     width: double.infinity,
                                     child: Text(widget.nameHint == 1
                                         ? "Hospital Name"
@@ -176,7 +176,7 @@ class _RegisterPageState extends State<RegisterPage> {
                                     TextController: _nameTextController,
                                   ),
                                   SizedBox(height: 10.h),
-                                  Container(
+                                  const SizedBox(
                                     width: double.infinity,
                                     child: Text("Address"),
                                   ),
@@ -185,7 +185,7 @@ class _RegisterPageState extends State<RegisterPage> {
                                     TextController: _locationTextController,
                                   ),
                                   SizedBox(height: 10.h),
-                                  Container(
+                                  const SizedBox(
                                     width: double.infinity,
                                     child: Text("Email"),
                                   ),
@@ -194,7 +194,7 @@ class _RegisterPageState extends State<RegisterPage> {
                                     TextController: _emailTextController,
                                   ),
                                   SizedBox(height: 10.h),
-                                  Container(
+                                  const SizedBox(
                                     width: double.infinity,
                                     child: Text("Password"),
                                   ),
@@ -206,7 +206,7 @@ class _RegisterPageState extends State<RegisterPage> {
                               )
                             : Column(
                                 children: [
-                                  Container(
+                                  const SizedBox(
                                     width: double.infinity,
                                     child: Text("Age"),
                                   ),
@@ -215,7 +215,7 @@ class _RegisterPageState extends State<RegisterPage> {
                                     TextController: _ageTextController,
                                   ),
                                   SizedBox(height: 10.h),
-                                  Container(
+                                  const SizedBox(
                                     width: double.infinity,
                                     child: Text("Gender"),
                                   ),
@@ -225,7 +225,7 @@ class _RegisterPageState extends State<RegisterPage> {
                                     text: "Gender",
                                   ),
                                   SizedBox(height: 10.h),
-                                  Container(
+                                  const SizedBox(
                                     width: double.infinity,
                                     child: Text("Blood Group"),
                                   ),
@@ -235,7 +235,7 @@ class _RegisterPageState extends State<RegisterPage> {
                                     text: "Blood Group",
                                   ),
                                   SizedBox(height: 10.h),
-                                  Container(
+                                  const SizedBox(
                                     width: double.infinity,
                                     child: Text("Mobile Number"),
                                   ),
@@ -247,7 +247,7 @@ class _RegisterPageState extends State<RegisterPage> {
                               ),
                         SizedBox(height: 20.h),
                         _isProcessing
-                            ? CircularProgressIndicator()
+                            ? const CircularProgressIndicator()
                             : isLastPage == false
                                 ? Row(
                                     children: [
@@ -265,11 +265,11 @@ class _RegisterPageState extends State<RegisterPage> {
                                                 .pushReplacement(
                                               MaterialPageRoute(
                                                 builder: (context) =>
-                                                    LoginPage(),
+                                                    const LoginPage(),
                                               ),
                                             );
                                           },
-                                          child: Text(
+                                          child: const Text(
                                             'Back',
                                             style:
                                                 TextStyle(color: Colors.white),
@@ -296,7 +296,7 @@ class _RegisterPageState extends State<RegisterPage> {
                                               });
                                             }
                                           },
-                                          child: Text(
+                                          child: const Text(
                                             'Next',
                                             style:
                                                 TextStyle(color: Colors.white),
@@ -321,7 +321,7 @@ class _RegisterPageState extends State<RegisterPage> {
                                               isLastPage = false;
                                             });
                                           },
-                                          child: Text(
+                                          child: const Text(
                                             'Back',
                                             style:
                                                 TextStyle(color: Colors.white),
@@ -375,7 +375,7 @@ class _RegisterPageState extends State<RegisterPage> {
                                               }
                                             }
                                           },
-                                          child: Text(
+                                          child: const Text(
                                             'Register',
                                             style:
                                                 TextStyle(color: Colors.white),
@@ -393,11 +393,11 @@ class _RegisterPageState extends State<RegisterPage> {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      Text("Already have an account?"),
+                      const Text("Already have an account?"),
                       SizedBox(
                         width: 2.w,
                       ),
-                      Text(
+                      const Text(
                         "Log In",
                         style: TextStyle(color: Colors.red),
                       )
