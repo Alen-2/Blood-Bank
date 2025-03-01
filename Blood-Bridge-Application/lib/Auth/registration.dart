@@ -1,4 +1,3 @@
-import 'dart:ffi';
 
 import 'package:blood_bank/Screens/mainScreen.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';

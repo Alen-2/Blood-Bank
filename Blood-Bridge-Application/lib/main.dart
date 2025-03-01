@@ -1,8 +1,6 @@
-import 'package:blood_bank/Auth/registration.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:blood_bank/Screens/mainScreen.dart';
 import 'Auth/loginPage.dart';
 
 Future main() async {

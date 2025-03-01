@@ -197,7 +197,7 @@ class _RegistrationOptionsState extends State<RegistrationOptions> {
                       onPressed: () async {
                         Navigator.of(context).pushReplacement(
                           MaterialPageRoute(
-                            builder: (context) => LoginPage(),
+                            builder: (context) => const LoginPage(),
                           ),
                         );
                       },

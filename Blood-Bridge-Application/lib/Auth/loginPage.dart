@@ -5,7 +5,6 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:blood_bank/Auth/fireAuth.dart';
 import 'package:blood_bank/Auth/registrationOptions.dart';
 import 'package:blood_bank/Screens/mainScreen.dart';
-import 'package:flutter_dotenv/flutter_dotenv.dart';
 import '../Widgets/customForm.dart';
 
 class LoginPage extends StatefulWidget {
@@ -136,7 +135,7 @@ class _LoginPageState extends State<LoginPage> {
                                                       .pushReplacement(
                                                     MaterialPageRoute(
                                                       builder: (context) =>
-                                                          RegistrationOptions(),
+                                                          const RegistrationOptions(),
                                                     ),
                                                   );
                                                 },
@@ -190,7 +189,7 @@ class _LoginPageState extends State<LoginPage> {
                                                       MaterialPageRoute(
                                                         builder: (context) =>
                                                             MainScreen(
-                                                          user: user,
+                                                          user: user!,
                                                         ),
                                                       ),
                                                     );
